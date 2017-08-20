@@ -37,12 +37,15 @@
   </PropertyGroup>
   <ItemGroup />
   <ItemGroup>
-    <Compile Include="src\ISpace.cs" />
-    <Compile Include="src\Player.cs" />
-    <Compile Include="src\SwinMonopoly.cs" />
-    <Compile Include="src\HousingProperty.cs" />
-    <Compile Include="src\Property.cs" />
-    <Compile Include="src\RailroadProperty.cs" />
+    <Compile Include="GOSpace.cs" />
+    <Compile Include="IncomeSpace.cs" />
+    <Compile Include="LuxurySpace.cs" />
+    <Compile Include="ISpace.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="SwinMonopoly.cs" />
+    <Compile Include="HousingProperty.cs" />
+    <Compile Include="Property.cs" />
+    <Compile Include="RailroadProperty.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SwinGame">
