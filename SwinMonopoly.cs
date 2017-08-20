@@ -19,7 +19,7 @@ namespace SwinMonopoly
             board[1] = new HousingProperty(Property.PropertySets.Brown, "Mediterranean Avenue", 60, 2, 10, 30, 90, 160, 250);
             //TODO: Community chest
             board[3] = new HousingProperty(Property.PropertySets.Brown, "Baltic Avenue", 60, 4, 20, 60, 180, 320, 450);
-            board[4] = new IncomeSpace();
+            board[4] = new TaxSpace(TaxSpace.TaxType.Income);
             board[5] = new RailroadProperty("Reading Railroad");
             board[6] = new HousingProperty(Property.PropertySets.Teal, "Oriental Avenue", 100, 6, 30, 90, 270, 400, 550);
             board[7] = new HousingProperty(Property.PropertySets.Teal, "Vermont Avenue", 100, 6, 30, 90, 270, 400, 550);
@@ -53,7 +53,7 @@ namespace SwinMonopoly
             board[35] = new RailroadProperty("Short Line");
             //TODO: Chance
             board[37] = new HousingProperty(Property.PropertySets.Blue, "Park Place", 350, 35, 175, 500, 1100, 1300, 1500);
-            board[38] = new LuxurySpace();
+            board[38] = new TaxSpace(TaxSpace.TaxType.Luxury);
             board[39] = new HousingProperty(Property.PropertySets.Blue, "Boardwalk", 400, 50, 200, 600, 1400, 1700, 2000);
 
             

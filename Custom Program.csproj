@@ -38,8 +38,7 @@
   <ItemGroup />
   <ItemGroup>
     <Compile Include="Spaces\GOSpace.cs" />
-    <Compile Include="Spaces\IncomeSpace.cs" />
-    <Compile Include="Spaces\LuxurySpace.cs" />
+    <Compile Include="Spaces\TaxSpace.cs" />
     <Compile Include="Spaces\ISpace.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="SwinMonopoly.cs" />
