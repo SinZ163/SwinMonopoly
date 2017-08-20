@@ -4,19 +4,6 @@ namespace SwinMonopoly.Spaces
 {
     public class HousingProperty : Property
     {
-        public enum PropertySets
-        {
-            Undefined = 0,
-            Brown,
-            Teal,
-            Magenta,
-            Orange,
-            Red,
-            Yellow,
-            Green,
-            Blue
-        }
-        public PropertySets Set { get; }
 
         /// <summary>
         /// The number of houses in this property.

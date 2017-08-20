@@ -9,6 +9,21 @@ namespace SwinMonopoly.Spaces
     public abstract class Property : ISpace
     {
         public Player owner;
+        
+        public enum PropertySets
+        {
+            Undefined = 0,
+            Brown,
+            Teal,
+            Magenta,
+            Orange,
+            Red,
+            Yellow,
+            Green,
+            Blue,
+            Railroad,
+        }
+        public PropertySets Set { get; protected set; }
 
         public int PropertyValue { get; protected set; }
 

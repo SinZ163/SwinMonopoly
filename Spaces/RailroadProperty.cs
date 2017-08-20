@@ -11,6 +11,7 @@ namespace SwinMonopoly.Spaces
         public RailroadProperty(string name)
         {
             Name = name;
+            Set = PropertySets.Railroad;
         }
 
         public override void DrawBoard()
