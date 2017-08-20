@@ -22,6 +22,7 @@ namespace SwinMonopoly.Spaces
             Green,
             Blue,
             Railroad,
+            Utility
         }
         public PropertySets Set { get; protected set; }
 

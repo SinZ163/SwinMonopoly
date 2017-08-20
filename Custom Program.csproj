@@ -46,6 +46,7 @@
     <Compile Include="Spaces\HousingProperty.cs" />
     <Compile Include="Spaces\Property.cs" />
     <Compile Include="Spaces\RailroadProperty.cs" />
+    <Compile Include="Spaces\UtilityProperty.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SwinGame">

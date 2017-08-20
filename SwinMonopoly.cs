@@ -26,8 +26,8 @@ namespace SwinMonopoly
             //TODO: Chance
             board[9] = new HousingProperty(Property.PropertySets.Teal, "Connecticut Avenue", 120, 8, 40, 100, 300, 450, 600);
             //TODO: Jail
-            //TODO: Utility (Electric)
             board[11] = new HousingProperty(Property.PropertySets.Magenta, "St. Charles Place", 140, 10, 50, 150, 450, 625, 750);
+            board[12] = new UtilityProperty(UtilityProperty.UtilityType.Electric);
             board[13] = new HousingProperty(Property.PropertySets.Magenta, "States Avenue", 140, 10, 50, 150, 450, 625, 750);
             board[14] = new HousingProperty(Property.PropertySets.Magenta, "Virginia Avenue", 160, 12, 60, 180, 500, 700, 900);
             board[15] = new RailroadProperty("Pennsylyania Railroad");
@@ -41,10 +41,9 @@ namespace SwinMonopoly
             board[23] = new HousingProperty(Property.PropertySets.Red, "Indiana Avenue", 220, 18, 90, 250, 700, 875, 1050);
             board[24] = new HousingProperty(Property.PropertySets.Red, "Illinois Avenue", 240, 20, 100, 300, 750, 925, 1100);
             board[25] = new RailroadProperty("B & O Railroad");
-            board[27] = new HousingProperty(HousingProperty.PropertySets.Yellow, "Ventnor Avenue", 260, 22, 110, 330, 800, 950, 1150);
-            //TODO: Utility (Water)
             board[26] = new HousingProperty(Property.PropertySets.Yellow, "Atlantic Avenue", 260, 22, 110, 330, 800, 950, 1150);
             board[27] = new HousingProperty(Property.PropertySets.Yellow, "Ventnor Avenue", 260, 22, 110, 330, 800, 950, 1150);
+            board[28] = new UtilityProperty(UtilityProperty.UtilityType.Water);
             board[29] = new HousingProperty(Property.PropertySets.Yellow, "Marvin Gardens", 280, 24, 120, 360, 850, 1025, 1200);
             //TODO: Goto Jail
             board[31] = new HousingProperty(Property.PropertySets.Green, "Pacific Avenue", 300, 26, 130, 390, 900, 1100, 1275);
