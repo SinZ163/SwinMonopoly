@@ -46,6 +46,9 @@
     <Compile Include="Spaces\Property.cs" />
     <Compile Include="Spaces\RailroadProperty.cs" />
     <Compile Include="Spaces\UtilityProperty.cs" />
+    <Compile Include="View\BoardView.cs" />
+    <Compile Include="View\IView.cs" />
+    <Compile Include="View\TradeView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SwinGame">
