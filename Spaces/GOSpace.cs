@@ -8,6 +8,8 @@ namespace SwinMonopoly.Spaces
 {
     public class GOSpace : ISpace
     {
+        public string Name => "GO";
+
         public void DrawBoard()
         {
             throw new NotImplementedException();

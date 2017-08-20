@@ -18,9 +18,20 @@ namespace SwinMonopoly.Spaces
 
         public TaxType Type { get; }
 
+        public string Name { get; }
+
         public TaxSpace(TaxType type)
         {
             Type = type;
+            switch(Type)
+            {
+                case TaxType.Luxury:
+                    Name = "Luxury Tax";
+                    break;
+                case TaxType.Income:
+                    Name = "Income Tax";
+                    break;
+            }
         }
 
         public void DrawBoard()

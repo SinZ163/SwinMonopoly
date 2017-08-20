@@ -8,6 +8,8 @@ namespace SwinMonopoly.Spaces
 {
     interface ISpace
     {
+        string Name { get; }
+
         void DrawBoard();
 
         void OnLand(Player person);
