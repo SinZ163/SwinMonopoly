@@ -1,5 +1,6 @@
 using System;
 using SwinGameSDK;
+using SwinMonopoly.Spaces;
 
 namespace SwinMonopoly
 {
@@ -7,6 +8,7 @@ namespace SwinMonopoly
     {
         public static int HouseCount;
         public static int HotelCount;
+
         public static void Main()
         {
             //Open the game window

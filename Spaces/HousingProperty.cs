@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SwinMonopoly
+namespace SwinMonopoly.Spaces
 {
     public class HousingProperty : Property
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SwinMonopoly
+namespace SwinMonopoly.Spaces
 {
     //TODO: Figure out if this should be made generic with IncomeSpace
     //TODO: Makes DrawBoard more complex
