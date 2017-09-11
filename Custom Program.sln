@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Custom Program", "Custom Program.csproj", "{8671CADD-C491-407F-A53C-A7E0800A8215}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug-Windows|x86 = Debug-Windows|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8671CADD-C491-407F-A53C-A7E0800A8215}.Debug-Windows|x86.ActiveCfg = Debug-Windows|x86
+		{8671CADD-C491-407F-A53C-A7E0800A8215}.Debug-Windows|x86.Build.0 = Debug-Windows|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4249205F-8EF8-4573-8FBF-6C861110A674}
+	EndGlobalSection
+EndGlobal

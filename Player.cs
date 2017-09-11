@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using SwinGameSDK;
 
+using SwinMonopoly.Spaces;
+
 namespace SwinMonopoly
 {
     public class Player
