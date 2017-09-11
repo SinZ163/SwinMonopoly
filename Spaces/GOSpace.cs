@@ -10,11 +10,6 @@ namespace SwinMonopoly.Spaces
     {
         public string Name => "GO";
 
-        public void DrawBoard()
-        {
-            throw new NotImplementedException();
-        }
-
         //TODO: Make sure it pays when you go past
         //TODO: Make sure it doesn't double pay
         public void OnLand(Player person)

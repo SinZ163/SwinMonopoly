@@ -14,16 +14,6 @@ namespace SwinMonopoly.Spaces
             Set = PropertySets.Railroad;
         }
 
-        public override void DrawBoard()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void DrawCard()
-        {
-            throw new NotImplementedException();
-        }
-
         public override void OnLand(Player person)
         {
             throw new NotImplementedException();

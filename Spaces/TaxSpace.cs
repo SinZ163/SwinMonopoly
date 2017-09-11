@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace SwinMonopoly.Spaces
 {
-    //TODO: Figure out if this should be made generic with IncomeSpace
-    //TODO: Makes DrawBoard more complex
     class TaxSpace : ISpace
     {
         public enum TaxType
@@ -32,11 +30,6 @@ namespace SwinMonopoly.Spaces
                     Name = "Income Tax";
                     break;
             }
-        }
-
-        public void DrawBoard()
-        {
-            throw new NotImplementedException();
         }
 
         public void OnLand(Player person)

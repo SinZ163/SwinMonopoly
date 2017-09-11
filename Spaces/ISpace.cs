@@ -10,8 +10,6 @@ namespace SwinMonopoly.Spaces
     {
         string Name { get; }
 
-        void DrawBoard();
-
         void OnLand(Player person);
     }
 }

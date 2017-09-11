@@ -45,10 +45,6 @@ namespace SwinMonopoly.Spaces
 
         public string Name { get; protected set; }
 
-        public abstract void DrawBoard();
-
-        public abstract void DrawCard();
-
         public abstract void OnLand(Player person);
     }
 }

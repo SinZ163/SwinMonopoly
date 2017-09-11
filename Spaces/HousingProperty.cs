@@ -73,16 +73,6 @@ namespace SwinMonopoly.Spaces
             return false;
         }
 
-        public override void DrawBoard()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void DrawCard()
-        {
-            throw new NotImplementedException();
-        }
-
         public override void OnLand(Player person)
         {
             if (owner == person)
