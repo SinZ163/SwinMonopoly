@@ -25,7 +25,7 @@ namespace SwinMonopoly
             board[7] = new HousingProperty(Property.PropertySets.Teal, "Vermont Avenue", 100, 6, 30, 90, 270, 400, 550);
             //TODO: Chance
             board[9] = new HousingProperty(Property.PropertySets.Teal, "Connecticut Avenue", 120, 8, 40, 100, 300, 450, 600);
-            //TODO: Jail
+            board[10] = new JailSpace();
             board[11] = new HousingProperty(Property.PropertySets.Magenta, "St. Charles Place", 140, 10, 50, 150, 450, 625, 750);
             board[12] = new UtilityProperty(UtilityProperty.UtilityType.Electric);
             board[13] = new HousingProperty(Property.PropertySets.Magenta, "States Avenue", 140, 10, 50, 150, 450, 625, 750);
@@ -35,7 +35,7 @@ namespace SwinMonopoly
             //TODO: Community Chest
             board[18] = new HousingProperty(Property.PropertySets.Orange, "Tennessee Avenue", 180, 14, 70, 200, 550, 750, 950);
             board[19] = new HousingProperty(Property.PropertySets.Orange, "New York Avenue", 200, 16, 80, 220, 600, 800, 1000);
-            //TODO: Free Parking
+            board[20] = new FreeParkingSpace();
             board[21] = new HousingProperty(Property.PropertySets.Red, "Kentucky Avenue", 220, 18, 90, 250, 700, 875, 1050);
             //TODO: Chance
             board[23] = new HousingProperty(Property.PropertySets.Red, "Indiana Avenue", 220, 18, 90, 250, 700, 875, 1050);
@@ -45,7 +45,7 @@ namespace SwinMonopoly
             board[27] = new HousingProperty(Property.PropertySets.Yellow, "Ventnor Avenue", 260, 22, 110, 330, 800, 950, 1150);
             board[28] = new UtilityProperty(UtilityProperty.UtilityType.Water);
             board[29] = new HousingProperty(Property.PropertySets.Yellow, "Marvin Gardens", 280, 24, 120, 360, 850, 1025, 1200);
-            //TODO: Goto Jail
+            board[30] = new GOTOJailSpace();
             board[31] = new HousingProperty(Property.PropertySets.Green, "Pacific Avenue", 300, 26, 130, 390, 900, 1100, 1275);
             board[32] = new HousingProperty(Property.PropertySets.Green, "North Carolina Avenue", 300, 26, 130, 390, 900, 1100, 1275);
             //TODO: Community Chest

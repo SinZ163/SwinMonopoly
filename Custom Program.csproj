@@ -38,7 +38,10 @@
   </PropertyGroup>
   <ItemGroup />
   <ItemGroup>
+    <Compile Include="Spaces\FreeParkingSpace.cs" />
     <Compile Include="Spaces\GOSpace.cs" />
+    <Compile Include="Spaces\GOTOJailSpace.cs" />
+    <Compile Include="Spaces\JailSpace.cs" />
     <Compile Include="Spaces\TaxSpace.cs" />
     <Compile Include="Spaces\ISpace.cs" />
     <Compile Include="Player.cs" />
