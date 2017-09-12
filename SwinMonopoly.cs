@@ -1,16 +1,48 @@
 using System;
 using SwinGameSDK;
 using SwinMonopoly.Spaces;
+using System.Runtime.InteropServices;
+using Microsoft.Win32.SafeHandles;
+using System.IO;
+using System.Text;
 
 namespace SwinMonopoly
 {
     public static class SwinMonopoly
     {
+        [DllImport("kernel32.dll",
+            EntryPoint = "GetStdHandle",
+            SetLastError = true,
+            CharSet = CharSet.Auto,
+            CallingConvention = CallingConvention.StdCall)]
+        private static extern IntPtr GetStdHandle(int nStdHandle);
+        [DllImport("kernel32.dll",
+            EntryPoint = "AllocConsole",
+            SetLastError = true,
+            CharSet = CharSet.Auto,
+            CallingConvention = CallingConvention.StdCall)]
+        private static extern int AllocConsole();
+        private const int STD_OUTPUT_HANDLE = -11;
+        private const int MY_CODE_PAGE = 437;
+        private static void InitConsole()
+        {
+            AllocConsole();
+            IntPtr stdHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+            SafeFileHandle safeFileHandle = new SafeFileHandle(stdHandle, true);
+            FileStream fileStream = new FileStream(safeFileHandle, FileAccess.Write);
+            Encoding encoding = System.Text.Encoding.GetEncoding(MY_CODE_PAGE);
+            StreamWriter standardOutput = new StreamWriter(fileStream, encoding);
+            standardOutput.AutoFlush = true;
+            Console.SetOut(standardOutput);
+        }
+       
+
         public static int HouseCount;
         public static int HotelCount;
 
         public static void Main()
         {
+            InitConsole();
             //Open the game window
             SwinGame.OpenGraphicsWindow("SwinMonopoly", 1440, 900);
             //SwinGame.ShowSwinGameSplashScreen();
@@ -56,9 +88,19 @@ namespace SwinMonopoly
             board[38] = new TaxSpace(TaxSpace.TaxType.Luxury);
             board[39] = new HousingProperty(Property.PropertySets.Blue, "Boardwalk", 400, 50, 200, 600, 1400, 1700, 2000);
 
-            
+            var players = new Player[]
+            {
+                new Player("SinZ", Color.Blue),
+                new Player("Yoshi2", Color.Red),
+                new Player("SpiderNight", Color.Green),
+                new Player("OvergrownOrange", Color.Orange)
+            };
+
+            var random = new Random();
+
+            SwinGame.Delay(3000);
             //Run the game loop
-            while(false == SwinGame.WindowCloseRequested())
+            while (false == SwinGame.WindowCloseRequested())
             {
                 //Fetch the next batch of UI interaction
                 SwinGame.ProcessEvents();
@@ -66,7 +108,136 @@ namespace SwinMonopoly
                 //Clear the screen and draw the framerate
                 SwinGame.ClearScreen(Color.White);
                 SwinGame.DrawFramerate(0,0);
-                
+
+                var i = -1;
+                foreach(var player in players)
+                {
+                    i++;
+
+                    if (player.Alive)
+                        player.Space += random.Next(1, 7) + random.Next(1, 7);
+                    var x = 1000 + 200 * i % 2;
+                    var y = 300 * i / 2;
+                    try
+                    {
+                        if (player.Alive)
+                        {
+                            board[player.Space].OnLand(player);
+                            SwinGame.DrawText(board[player.Space].Name, Color.Black, x, 30 + y);
+                        }
+                        else
+                        {
+                            SwinGame.DrawText($"D E A D", Color.Red, x, 30 + y);
+                        }
+                    }
+                    catch (NotImplementedException)
+                    {
+                        SwinGame.DrawText($"Oops", Color.Red, x, 50 + y);
+                    }
+                    catch (NullReferenceException)
+                    {
+                        SwinGame.DrawText($"This doesn't exist yet.", Color.Red, x, 50 + y);
+                    }
+                    catch (Exception)
+                    {
+                        player.Alive = false;
+                    }
+                    finally
+                    {
+                        SwinGame.DrawRectangle(player.Color, x, y, 200, 150);
+                        SwinGame.DrawText(player.Nickname, Color.Black, x, 10 + y);
+                        SwinGame.DrawText($"{player.Space:D2}", Color.Black, x, 75 + y);
+                        SwinGame.DrawText($"{player.Money:0,0}", Color.Green, x, 100 + y);
+                    }
+                }
+                for (var j = 0; j < 40; j++)
+                {
+                    float x = 0;
+                    float y = 0;
+                    float width = 100;
+                    float height = 100;
+
+                    if (j < 11)
+                    {
+                        height = 200;
+                        y = 1100;
+                        if (j != 10)
+                            x = 1100 - j * 100;
+                    }
+                    else if (j < 21)
+                    {
+                        width = 200;
+                        x = 0;
+                        if (j != 20)
+                            y = 1100 - ((j%10) * 100);
+                    }
+                    else if (j < 31)
+                    {
+                        height = 200;
+                        y = 0;
+                        x = 100 + (j%10) * 100;
+                    }
+                    else
+                    {
+                        width = 200;
+                        x = 1100;
+                        y = 100 + (j%10) * 100;
+                    }
+                    if (j % 10 == 0)
+                    {
+                        width = 200;
+                        height = 200;
+                    }
+                    x *= 0.7f;
+                    y *= 0.7f;
+                    width *= 0.7f;
+                    height *= 0.7f;
+                    SwinGame.DrawRectangle(Color.Black, x, y, width, height);
+                    //Console.WriteLine($"I: {j} X: {x} Y: {y}");
+                    switch (board[j])
+                    {
+                        //case RailroadProperty rProp:
+                        case Property prop:
+                            SwinGame.DrawText(prop.Name, Color.Black, x+2, y+2);
+                            if (prop.owner != null)
+                            {
+                                SwinGame.DrawRectangle(prop.owner.Color, x + 1, y + 1, width - 2, height - 2);
+                            }
+                            break;
+                        case ISpace space:
+                            SwinGame.DrawText(space.Name, Color.Black, x, y);
+                            break;
+                        default:
+                            SwinGame.DrawText("?", Color.DarkRed, x+40, y+10);
+                            break;
+                    }
+                    // Corners
+                    //if (j % 10 == 0)
+                    //{
+                    //    switch(j)
+                    //    {
+                    //        case 0:
+                    //            SwinGame.DrawRectangle(Color.Black, 1100, 300+1100, 100, 100);
+                    //            SwinGame.DrawText("GO", Color.Green, 1150, 1450);
+                    //            break;
+                    //        case 10:
+                    //            SwinGame.DrawRectangle(Color.Black, 0, 300 + 1100, 100, 100);
+                    //            SwinGame.DrawText("JAIL", Color.Purple, 50, 1450);
+                    //            break;
+                    //        case 20:
+                    //            SwinGame.DrawRectangle(Color.Black, 0, 300, 100, 100);
+                    //            SwinGame.DrawText("Free Parking", Color.Red, 50, 350);
+                    //            break;
+                    //        case 30:
+                    //            SwinGame.DrawRectangle(Color.Black, 1100, 300, 100, 100);
+                    //            SwinGame.DrawText("GOTO Jail", Color.Purple, 1150, 350);
+                    //            break;
+                    //    }
+                    //}
+                }            
+
+                SwinGame.Delay(500);
+
                 //Draw onto the screen
                 SwinGame.RefreshScreen(60);
             }
