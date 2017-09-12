@@ -17,10 +17,26 @@ namespace SwinMonopoly
 
         public List<Property> ownedProperty;
 
+        public bool Alive;
+
+        private int space;
+        public int Space
+        {
+            get => space;
+            set
+            {
+                while (value >= 40) value -= 40;
+                space = value;
+            }
+        }
+
         public Player(string name, Color color)
         {
             Nickname = name;
             Color = color;
+            Money = 1500;
+            Space = 0;
+            Alive = true;
         }
 
         public void GainMoney(int amount)
@@ -35,7 +51,7 @@ namespace SwinMonopoly
                 Money -= amount;
                 return true;
             }
-            return false;
+            throw new Exception("Not enough funds");
         }
     }
 }

@@ -17,7 +17,10 @@ namespace SwinMonopoly.Spaces
 
         public void OnLand(Player person)
         {
-            //TODO: Move them to jail, set their jail status to true.
+            //TODO: set their jail status to true.
+
+            // Sets their space to JAIL
+            person.Space = 10;
         }
     }
 }

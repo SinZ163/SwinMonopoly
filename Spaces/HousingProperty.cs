@@ -75,29 +75,45 @@ namespace SwinMonopoly.Spaces
 
         public override void OnLand(Player person)
         {
-            if (owner == person)
-                return;
-
-            var price = PropertyValue;
-            switch (HouseCount)
+            if (owner is null)
             {
-                case 1:
-                    price = OneHouseValue;
-                    break;
-                case 2:
-                    price = TwoHouseValue;
-                    break;
-                case 3:
-                    price = ThreeHouseValue;
-                    break;
-                case 4:
-                    price = FourHouseValue;
-                    break;
-                case 5:
-                    price = HotelValue;
-                    break;
+                // Unowned
+                person.Charge(PropertyValue);
+                owner = person;
             }
+            else
+            {
+                if (owner == person)
+                    return;
+                if (IsMortgaged)
+                    return;
 
+                var price = PropertyValue;
+                switch (HouseCount)
+                {
+                    case 0:
+                        // TODO: Check if monopoly
+                        break;
+                    case 1:
+                        price = OneHouseValue;
+                        break;
+                    case 2:
+                        price = TwoHouseValue;
+                        break;
+                    case 3:
+                        price = ThreeHouseValue;
+                        break;
+                    case 4:
+                        price = FourHouseValue;
+                        break;
+                    case 5:
+                        price = HotelValue;
+                        break;
+                }
+
+                person.Charge(price);
+                owner.GainMoney(price);
+            }
         }
 
         public override void Mortgage()

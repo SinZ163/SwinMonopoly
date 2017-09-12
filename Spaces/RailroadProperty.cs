@@ -16,7 +16,21 @@ namespace SwinMonopoly.Spaces
 
         public override void OnLand(Player person)
         {
-            throw new NotImplementedException();
+            if (owner is null)
+            {
+                // Unowned
+                person.Charge(PropertyValue);
+                owner = person;
+            }
+            else
+            {
+                if (owner == person)
+                    return;
+                if (IsMortgaged)
+                    return;
+                // TODO: Check monopoly status
+                person.Charge(25);
+            }
         }
     }
 }
