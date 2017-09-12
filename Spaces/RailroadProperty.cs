@@ -8,7 +8,7 @@ namespace SwinMonopoly.Spaces
 {
     public class RailroadProperty : Property
     {
-        public RailroadProperty(string name)
+        public RailroadProperty(string name) : base()
         {
             Name = name;
             Set = PropertySets.Railroad;

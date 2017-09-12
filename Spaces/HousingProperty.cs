@@ -19,7 +19,7 @@ namespace SwinMonopoly.Spaces
         public readonly int FourHouseValue;
         public readonly int HotelValue;
 
-        public HousingProperty(PropertySets set, string name, int value, int baseRent, int oneHouse, int twoHouse, int threeHouse, int fourHouse, int hotel)
+        public HousingProperty(PropertySets set, string name, int value, int baseRent, int oneHouse, int twoHouse, int threeHouse, int fourHouse, int hotel) : base()
         {
             Name = name;
             Set = set;

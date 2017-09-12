@@ -30,6 +30,12 @@ namespace SwinMonopoly.Spaces
 
         public bool IsMortgaged { get; private set; }
 
+        public Property()
+        {
+            owner = null;
+            IsMortgaged = false;
+        }
+
         public virtual void Mortgage()
         {
             if (IsMortgaged) throw new Exception("Unable to mortgage an already mortgaged property");
