@@ -107,7 +107,7 @@ namespace SwinMonopoly
                 
                 //Clear the screen and draw the framerate
                 SwinGame.ClearScreen(Color.White);
-                SwinGame.DrawFramerate(0,0);
+                SwinGame.DrawFramerate(300,300);
 
                 var i = -1;
                 foreach(var player in players)
@@ -175,7 +175,7 @@ namespace SwinMonopoly
                     {
                         height = 200;
                         y = 0;
-                        x = 100 + (j%10) * 100;
+                        x = 100 + (j-20) * 100;
                     }
                     else
                     {
